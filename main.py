@@ -1,7 +1,7 @@
 import os
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")  # Read token from Render environment variable
+TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 async def start(update, context):
     await update.message.reply_text("🔥 Your bot is LIVE on Render!")
@@ -18,7 +18,7 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
 
-    print("🚀 Bot is running...")
+    print("🚀 Bot is running…")
     app.run_polling()
 
 if __name__ == "__main__":
